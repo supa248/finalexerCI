@@ -34,14 +34,16 @@ jobs:
 workflows:
   
   new_workflow:
-      
-    - build
-    - test:
-        requires:
-          - build
 
-    - analyze:
-        requires:
-          - test
+    jobs:
+    
+      - build
+      - test:
+          requires:
+            - build
+
+      - analyze:
+          requires:
+            - test
 
 
